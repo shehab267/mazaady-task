@@ -10,5 +10,5 @@ export default defineNuxtConfig({
   imports: {
     dirs: ['stores']
   },
-  plugins: ["@/plugins/axios.ts"],
+  plugins: ["@/plugins/axios.ts", "@/plugins/vue-select.ts"],
 });
