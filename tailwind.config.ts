@@ -7,7 +7,6 @@ module.exports = {
     "./pages/**/*.vue",
     "./nuxt.config.ts",
     "./app.vue",
-    "./**/*.ts",
   ],
   pinia:{
     storesDirs : ["./stores/**"],
