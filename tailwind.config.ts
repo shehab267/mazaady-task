@@ -1,4 +1,3 @@
-// Done Reviewing
 /** @type {import('tailwindcss').Config} */
 const tailwindcssForms = require("@tailwindcss/forms")
 module.exports = {
