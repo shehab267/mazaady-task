@@ -1,75 +1,64 @@
-# Nuxt 3 Minimal Starter
+# Mazaady Frontend Task
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Project Overview
 
-## Setup
+This project is a frontend implementation of the Mazaady, developed as part of a coding task. It showcases a dynamic form with searchable dropdown menus and a static page design, built using Nuxt.js and styled with Tailwind CSS.
 
-Make sure to install the dependencies:
+## Live Demo
 
-```bash
-# npm
-npm install
+You can view the live version of this project at: [https://mazaady-task-jet.vercel.app/](https://mazaady-task-jet.vercel.app/)
+or
+https://mazaady-task-3u1n42bgk-shehab267s-projects.vercel.app/form
 
-# pnpm
-pnpm install
+## Features
 
-# yarn
-yarn install
+1. **Dynamic Form Component:** [live](https://mazaady-task-jet.vercel.app/form)
 
-# bun
-bun install
-```
+   - Main category and subcategory searchable dropdown menus
+   - Dynamic generation of property fields based on category selection
+   - Support for nested properties (e.g., brand => model => type)
+   - "Other" option for custom input
+   - Submission of selected values displayed in a table
 
-## Development Server
+2. **Static Page Design:** [live](https://mazaady-task-jet.vercel.app/)
+   - Implementation of the provided Figma design
 
-Start the development server on `http://localhost:3000`:
+## Getting Started
 
-```bash
-# npm
-npm run dev
+### Prerequisites
 
-# pnpm
-pnpm run dev
+- Node.js (v18 or later recommended)
+- npm or yarn
 
-# yarn
-yarn dev
+### Installation
 
-# bun
-bun run dev
-```
+1. Clone the repository
+2. Install dependencies: yarn install
+3. Set up environment:
 
-## Production
+   - Remove `.example` from `.env.example`
 
-Build the application for production:
+4. yarn dev
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
-```bash
-# npm
-npm run build
+## API Integration
 
-# pnpm
-pnpm run build
+This project integrates with the following Mazaady APIs:
 
-# yarn
-yarn build
+1. Get all categories: `https://staging.mazaady.com/api/v1/get_all_cats`
+2. Get properties for a subcategory: `https://staging.mazaady.com/api/v1/properties?cat={subcategory_id}`
+3. Get child options: `https://staging.mazaady.com/api/v1/get-options-child/{option_id}`
 
-# bun
-bun run build
-```
+Note: You'll need to use the provided private key for API authentication.
 
-Locally preview production build:
+## Deployment
 
-```bash
-# npm
-npm run preview
+This project is deployed on Vercel. For deployment instructions, please refer to the [Vercel documentation for Nuxt.js](https://vercel.com/guides/deploying-nuxt-with-vercel).
 
-# pnpm
-pnpm run preview
+## Contributing
 
-# yarn
-yarn preview
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-# bun
-bun run preview
-```
+## License
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+This project is licensed under the [MIT License](LICENSE).
