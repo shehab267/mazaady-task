@@ -1,6 +1,6 @@
 {
     "private": true,
-    "name": "mazzaady-task",
+    "name": "mazaady-task",
     "scripts": {
         "build": "nuxt build",
         "dev": "nuxt dev",
