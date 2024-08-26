@@ -1,7 +1,9 @@
 <template>
-  <button class="gradient-button-cta flex items-center gap-1 px-4 py-3">
+  <button
+    class="gradient-button-cta flex items-center justify-center gap-1 rounded-[10px] px-3 py-3 text-white max-lg:min-w-[25%]"
+  >
     <AtomIconAdd />
-    <span class="text-sm font-bold capitalize text-white">
+    <span class="text-sm font-semibold capitalize text-white">
       {{ props.placeholder }}
     </span>
   </button>

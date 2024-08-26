@@ -332,7 +332,7 @@ function resetForm() {
           </div>
         </div>
         <div class="mt-5 flex items-center justify-center">
-          <base-button class="w-fit px-5 py-3" type="submit"
+          <base-button class="w-full px-5 py-3" type="submit"
             >Submit</base-button
           >
         </div>
