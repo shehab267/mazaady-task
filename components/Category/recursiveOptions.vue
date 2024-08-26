@@ -6,6 +6,7 @@ defineProps({
   },
 });
 const emit = defineEmits(['select-option']);
+// Check if an option has children
 const hasChildern = (option) => {
   return option.child;
 };
@@ -31,7 +32,7 @@ const getChildOptions = async (prop) => {
     v-model="property.value"
     @option:selected="getChildOptions(property)"
   ></v-select>
-
+  <!-- Render a text input if 'other' is selected -->
   <base-text-input
     :key="property.id + 'other'"
     v-if="property.value == 'other'"
@@ -40,7 +41,7 @@ const getChildOptions = async (prop) => {
     customClasses="border-gray-500 mt-2"
   >
   </base-text-input>
-
+  <!-- Recursively render child options if they exist -->
   <div
     v-if="
       property?.options?.[
