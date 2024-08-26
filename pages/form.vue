@@ -62,13 +62,10 @@ const {
 } = useCategory();
 const {getMainCategoriesList} = storeToRefs(useCategory());
 
-onBeforeMount(async () => {
-  loading.value = true;
-  try {
-    await fetchMainCategories();
-  } finally {
-    loading.value = false;
-  }
+const {data, error, pending, refresh} = await useLazyAsyncData(async () => {
+  const response = await fetchMainCategories();
+  console.log('🚀 ~ response:', response);
+  return response;
 });
 
 const getSubCategory: ComputedRef<ISubCategory[] | undefined> = computed(() => {
@@ -277,10 +274,22 @@ function resetForm() {
 </script>
 
 <template>
-  <!-- center -->
   <div class="flex w-full items-center justify-center py-20">
     <!-- loader -->
-    <base-loader v-if="loading" />
+    <base-loader v-if="loading || pending" />
+    <div
+      v-else-if="error"
+      class="flex flex-col items-center justify-center rounded bg-red-100 p-4"
+    >
+      <h2 class="mb-2 text-center text-xl font-bold text-red-500">Error</h2>
+      <p class="text text-center text-red-500">{{ error.message }}</p>
+
+      <base-button
+        class="mt-4 rounded border border-gray-400 bg-white px-4 py-2 font-semibold text-gray-800 shadow hover:bg-gray-100"
+        @click="refresh"
+        >Try Again</base-button
+      >
+    </div>
     <div v-else>
       <form @submit.prevent="generateTable">
         <div class="flex flex-col items-center justify-center">
