@@ -54,7 +54,10 @@ const getProperties = async () => {
     formData.props_values = properties?.map((property) => {
       return {
         ...property,
-        options: toRef([...property.options, otherStaticOption]),
+        options: [
+          ...property.options,
+          otherStaticOption,
+        ] as ICategoryPropertyOption[],
       };
     });
   } finally {
@@ -163,12 +166,21 @@ const generateTable = () => {
   }
 };
 
+// Resets the form when the main category changes.
 watch(
   () => formData.selected_main_category,
   (newValue) => {
     resetForm();
   },
 );
+// Resets the form when the sub category changes to null.
+watch(
+  () => formData.selected_sub_category,
+  (newValue) => {
+    if (newValue == null) resetForm();
+  },
+);
+
 function resetForm() {
   formData.selected_sub_category = '';
   formData.props_values = [];
